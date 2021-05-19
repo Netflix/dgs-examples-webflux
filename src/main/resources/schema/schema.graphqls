@@ -1,0 +1,36 @@
+type Query {
+    shows(titleFilter: String): [Show]
+    reviews(dateRange: DateRange): [Review]
+}
+
+type Mutation {
+    addReview(review: SubmittedReview): [Review]
+    addReviews(reviews: [SubmittedReview]): [Review]
+}
+
+type Subscription {
+    reviewAdded(showId: Int!): Review
+}
+
+type Show {
+    id: Int
+    title: String
+    releaseYear: Int
+    reviews(minScore:Int): [Review]
+}
+
+scalar DateRange
+
+type Review {
+    username: String
+    starScore: Int
+    submittedDate: DateTime
+}
+
+input SubmittedReview {
+    showId: Int!
+    username: String!
+    starScore: Int!
+}
+
+scalar DateTime
