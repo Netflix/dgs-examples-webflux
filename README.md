@@ -11,7 +11,6 @@ It shows the following features:
 * [DataLoader to prevent the N+1 problem](https://github.com/Netflix/dgs-examples-java/blob/main/src/main/java/com/example/demo/datafetchers/ReviewsDataFetcher.java#L40)
 * [Query testing](https://github.com/Netflix/dgs-examples-java/blob/main/src/test/java/com/example/demo/ShowsDatafetcherTest.java#L61)
 * [Using a generated Query API](https://github.com/Netflix/dgs-examples-java/blob/main/src/test/java/com/example/demo/ShowsDatafetcherTest.java#L89)
-* [File Upload](https://github.com/Netflix/dgs-examples-java/blob/main/src/main/java/com/example/demo/datafetchers/ArtworkUploadDataFetcher.java#L22)
 * [Using the Gradle codegen plugin](https://github.com/Netflix/dgs-examples-java/blob/main/build.gradle.kts#L45)
 * [A custom instrumentation implementation](https://github.com/Netflix/dgs-examples-java/blob/main/src/main/java/com/example/demo/instrumentation/ExampleTracingInstrumentation.java#L20)
 * [Subscriptions](https://github.com/Netflix/dgs-examples-java/blob/main/src/main/java/com/example/demo/datafetchers/ReviewsDataFetcher.java#L60)
@@ -23,6 +22,7 @@ Other examples
 
 There are other examples of using the DGS framework as well:
 
+* [WebMVC implementation of this example](https://github.com/Netflix/dgs-examples-java)
 * [Kotlin implementation of this example](https://github.com/Netflix/dgs-examples-kotlin)
 * [Federation examples (with Apollo Gateway)](https://github.com/Netflix/dgs-federation-example)
 
@@ -44,11 +44,6 @@ Reviews can also be added by users of the API using
 a [mutation](https://github.com/Netflix/dgs-examples-java/blob/main/src/main/resources/schema/schema.graphqls#L6), and
 a [GraphQL Subscription](https://github.com/Netflix/dgs-examples-java/blob/main/src/main/resources/schema/schema.graphqls#L11)
 is available to watch for added reviews.
-
-There's also a mutation available to
-add [Artwork](https://github.com/Netflix/dgs-examples-java/blob/main/src/main/resources/schema/schema.graphqls#L7) for a
-show, demonstrating file uploads. Uploaded files are stored in a folder `uploaded-images` in the work directory where
-ethe application is started.
 
 Starting the example
 ----
