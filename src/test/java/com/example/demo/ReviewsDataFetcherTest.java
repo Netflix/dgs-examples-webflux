@@ -15,11 +15,13 @@ import com.netflix.graphql.dgs.DgsQueryExecutor;
 import com.netflix.graphql.dgs.autoconfig.DgsAutoConfiguration;
 import com.netflix.graphql.dgs.client.codegen.GraphQLQueryRequest;
 import graphql.ExecutionResult;
+import graphql.schema.Coercing;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Map;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -31,11 +33,12 @@ public class ReviewsDataFetcherTest {
 
     @Test
     public void testReviewsWithDateRange() {
+        Map<Class<?>, Coercing<?, ?>> scalars = new HashMap<>();
+        scalars.put(DateRange.class, new DateRangeScalar());
+
         GraphQLQueryRequest request = new GraphQLQueryRequest(
                 ReviewsGraphQLQuery.newRequest().dateRange(new DateRange(LocalDate.of(2020, 1, 1), LocalDate.now())).build(),
-                new ReviewsProjectionRoot().submittedDate().starScore(),
-                Map.of(DateRange.class, new DateRangeScalar())
-        );
+                new ReviewsProjectionRoot().submittedDate().starScore(), scalars);
 
         ExecutionResult execute = dgsQueryExecutor.execute(request.serialize());
         assertThat(execute.isDataPresent()).isTrue();
