@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:4.0.0-rc.2"))
+    implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:4.0.0"))
     implementation("com.netflix.graphql.dgs:graphql-dgs-webflux-starter")
     implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
     implementation("com.github.javafaker:javafaker:1.+")
