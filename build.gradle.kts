@@ -18,7 +18,7 @@
 plugins {
     id("java")
     id("com.netflix.dgs.codegen") version "5.1.9"
-    id("org.springframework.boot") version "2.4.5"
+    id("org.springframework.boot") version "2.6.1"
 }
 
 group = "com.example"
@@ -33,9 +33,6 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenCentral()
-    maven {
-        url = uri("https://netflixoss.jfrog.io/artifactory/maven-oss-candidates/")
-    }
     mavenLocal()
 }
 
