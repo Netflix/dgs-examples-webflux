@@ -17,7 +17,7 @@
 
 plugins {
     id("java")
-    id("com.netflix.dgs.codegen") version "5.1.9"
+    id("com.netflix.dgs.codegen") version "5.1.10"
     id("org.springframework.boot") version "2.6.1"
 }
 
