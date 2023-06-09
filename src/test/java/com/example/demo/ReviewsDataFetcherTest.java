@@ -38,7 +38,7 @@ public class ReviewsDataFetcherTest {
 
         GraphQLQueryRequest request = new GraphQLQueryRequest(
                 ReviewsGraphQLQuery.newRequest().dateRange(new DateRange(LocalDate.of(2020, 1, 1), LocalDate.now())).build(),
-                new ReviewsProjectionRoot().submittedDate().starScore(), scalars);
+                new ReviewsProjectionRoot<>().submittedDate().starScore(), scalars);
 
         ExecutionResult execute = dgsQueryExecutor.execute(request.serialize());
         assertThat(execute.isDataPresent()).isTrue();
