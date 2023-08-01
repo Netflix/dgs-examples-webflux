@@ -40,7 +40,15 @@ dependencies {
     implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:latest.release"))
     implementation("com.netflix.graphql.dgs:graphql-dgs-webflux-starter")
     implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
-    implementation("com.github.javafaker:javafaker:1.+")
+    implementation("com.github.javafaker:javafaker:1.+") {
+        exclude(group = "org.yaml", module = "snakeyaml")
+    }
+    implementation("org.yaml:snakeyaml") {
+        version {
+            strictly("2.0")
+        }
+    }
+    implementation("javax.annotation:javax.annotation-api:1.3.2")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
@@ -53,8 +61,8 @@ tasks.withType<com.netflix.graphql.dgs.codegen.gradle.GenerateJavaTask> {
 
 tasks.withType<JavaCompile> {
     java {
-        targetCompatibility = JavaVersion.VERSION_1_8
-        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
     }
 }
 
